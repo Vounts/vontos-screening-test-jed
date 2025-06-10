@@ -14,7 +14,7 @@ export async function getI18n(locale: string) {
       defaultNS: "common",
       interpolation: { escapeValue: false },
       backend: {
-        loadPath: path.resolve("./public/locales/{{lng}}/{{ns}}.json"),
+        loadPath: "/locales/{{lng}}/{{ns}}.json",
       },
     });
   } else {
