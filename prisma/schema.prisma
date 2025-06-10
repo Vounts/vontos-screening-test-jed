@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DIRECT_URL")
+}
+
+model Student {
+  id          String       @id @default(uuid())
+  firstName   String
+  lastName    String
+  email       String       @unique
+  assessments Assessment[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Teacher {
+  id         String     @id @default(uuid())
+  firstName  String
+  lastName   String
+  email      String     @unique
+  subjects   Subject[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
+
+model Subject {
+  id           String       @id @default(uuid())
+  name         String
+  teacher      Teacher      @relation(fields: [teacherId], references: [id])
+  teacherId    String
+  assessments  Assessment[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+}
+
+model Domain {
+  id            String        @id @default(uuid())
+  name          String
+  competencies  Competency[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Competency {
+  id            String        @id @default(uuid())
+  name          String
+  domain        Domain        @relation(fields: [domainId], references: [id])
+  domainId      String
+  assessments   Assessment[]
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+}
+
+model Assessment {
+  id            String       @id @default(uuid())
+  student       Student      @relation(fields: [studentId], references: [id])
+  studentId     String
+  competency    Competency   @relation(fields: [competencyId], references: [id])
+  competencyId  String
+  subject       Subject      @relation(fields: [subjectId], references: [id])
+  subjectId     String
+  score         Float
+  assessedAt    DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+
+  @@unique([studentId, competencyId, subjectId]) // Prevent duplicate scores
+}

@@ -1,0 +1,9 @@
+{
+  "grading": {
+    "select_subject": "科目を選択",
+    "back": "戻る",
+    "subject_title": "採点 - 科目: {{subjectId}}",
+    "student": "生徒",
+    "save_scores": "スコアを保存"
+  }
+}

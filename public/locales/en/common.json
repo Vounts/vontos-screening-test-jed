@@ -1,0 +1,9 @@
+{
+  "grading": {
+    "select_subject": "Select a Subject",
+    "back": "Back",
+    "subject_title": "Grading - Subject: {{subjectId}}",
+    "student": "Student",
+    "save_scores": "Save Scores"
+  }
+}
