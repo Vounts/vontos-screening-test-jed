@@ -9,8 +9,8 @@ A dynamic and multilingual grading system for managing student competency assess
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/your-org/vontos-grading.git
-cd vontos-grading
+git clone https://github.com/Vounts/vontos-screening-test-jed.git
+cd vontos-screening-test-jed
 ```
 
 2. **Install dependencies**
@@ -33,6 +33,9 @@ npx prisma db seed
 
 6. **Run development server**
 npm run dev
+
+**DB Schema**
+![DB schema](https://github.com/user-attachments/assets/b6d6bc30-1308-4301-b379-486029c196c0)
 
 
 **🌐 API Sample JSON**
