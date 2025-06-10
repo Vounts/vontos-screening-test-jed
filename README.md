@@ -34,6 +34,9 @@ npx prisma db seed
 6. **Run development server**
 npm run dev
 
+**DB Schema**
+![DB schema](https://github.com/user-attachments/assets/b6d6bc30-1308-4301-b379-486029c196c0)
+
 
 **🌐 API Sample JSON**
 Create Assessments (POST /api/assessments)
