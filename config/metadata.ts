@@ -15,7 +15,9 @@ export const baseMetaData: Metadata = {
     "competency-based education",
     "school grading module",
   ],
-  authors: [{ name: "Vounts", url: "https://vontos.io" }],
+  authors: [
+    { name: "Vounts", url: "https://vontos-screening-test-jed.vercel.app/" },
+  ],
   creator: "Vounts",
   publisher: "Vounts",
   robots: {
@@ -26,7 +28,7 @@ export const baseMetaData: Metadata = {
     title: "Vontos Grading Module",
     description:
       "Efficiently assess and manage student grades using the Vontos Grading Module.",
-    url: "https://vontos.io/grading",
+    url: "https://vontos-screening-test-jed.vercel.app/en/grading",
     siteName: "Vontos",
     images: [
       {
@@ -46,5 +48,5 @@ export const baseMetaData: Metadata = {
     images: ["https://vontos.io/images/og-grading.png"],
     creator: "@vontosapp",
   },
-  metadataBase: new URL("https://vontos.io"),
+  metadataBase: new URL("https://vontos-screening-test-jed.vercel.app/"),
 };
