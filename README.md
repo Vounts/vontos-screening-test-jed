@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📊 Vontos Grading Module
 
-## Getting Started
+A dynamic and multilingual grading system for managing student competency assessments. Built with **Next.js 15 App Router**, **Prisma**, **PostgreSQL**, and **i18next**.
 
-First, run the development server:
+---
+
+## 🚀 Setup Instructions
+
+1. **Clone the repository**
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-org/vontos-grading.git
+cd vontos-grading
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies**
+npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Configure environment variables**
+Create a .env file
+DATABASE_URL=
+DIRECT_URL=
+Will attach on email
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+4. **Generate Prisma Client**
+npx prisma generate
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5. **You can reseed DB**
+npx prisma db seed
 
-## Deploy on Vercel
+6. **Run development server**
+npm run dev
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**🌐 API Sample JSON**
+Create Assessments (POST /api/assessments)
+```bash
+{
+  "subjectId": "abc123",
+  "assessments": [
+    {
+      "studentId": "stu001",
+      "competencyId": "comp001",
+      "score": 4
+    },
+    {
+      "studentId": "stu001",
+      "competencyId": "comp002",
+      "score": 3
+    }
+  ]
+}
+```
+
+Update Score (PATCH /api/assessments/:id)
+```bash
+{
+  "score": 5
+}
+```
+
+Fetch Student Assessments (GET /api/assessments/:studentId)
+```bash
+[
+  {
+    "subject": "Mathematics",
+    "competency": "Problem Solving",
+    "domain": "Cognitive",
+    "score": 4,
+    "assessedAt": "2025-06-11T10:20:00Z"
+  }
+]
+```
+
+**📸 Screenshots**
