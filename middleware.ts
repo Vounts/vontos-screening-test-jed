@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
   }
 
   // If root route, redirect to default locale
-  if (!pathname.startsWith("/en") && !pathname.startsWith("/ja")) {
-    return NextResponse.redirect(new URL("/en" + pathname, request.url));
+  if (pathname === "/") {
+    return NextResponse.redirect(new URL("/en/grading", request.url));
   }
 }
